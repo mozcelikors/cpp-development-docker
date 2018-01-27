@@ -12,6 +12,6 @@ RUN apt-get install -y python-dev \
 
 RUN apt-get install -y doxygen curl valgrind ssh telnet git
 
-RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
 
-CMD ["/usr/bin/bash"] 
+
