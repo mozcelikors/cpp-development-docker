@@ -18,12 +18,11 @@ RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.d
 # Your SDK - In my case it's the rover
 RUN wget -c 'https://owncloud.idial.institute/s/7fh4gbQjS7wfN4B/download?path=%2Fagl-kuksa-rover%2F0.0.0%2Fsdk&files=rover-glibc-x86_64-agl-demo-platform-crosssdk-armv7vehf-neon-vfpv4-toolchain-0.0.0.sh' -O rover_sdk.sh
 
-# Copy/Install your SDK
+# Copy/Install your SDK - for rover in my case
 RUN mkdir -p /opt/rover/0.0.0
 
-RUN cp rover_sdk.sh /opt/rover/0.0.0/environment-setup-armv7vehf-neon-vfpv4-rover-linux-gnueabi
+RUN mv rover_sdk.sh /opt/rover/0.0.0/install_rover_sdk.sh
 
-RUN chmod +x /opt/rover/0.0.0/environment-setup-armv7vehf-neon-vfpv4-rover-linux-gnueabi
+RUN chmod u+x /opt/rover/0.0.0/install_rover_sdk.sh
 
-
-
+RUN echo /opt/rover/0.0.0 | ./opt/rover/0.0.0/install_rover_sdk.sh
